@@ -116,6 +116,9 @@ router.post('/subscribe', async (req, res) => {
   } catch (err) { throw new Error(err) }
 })
 
+router.get('/verifyemail', () => {
+  res.json({message: "Your email has been verified"})
+})
 router.post('/verifyemail', async (req, res) => {
   try {
     const { email } = req.body
