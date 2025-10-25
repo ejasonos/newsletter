@@ -5,7 +5,7 @@ import "vue3-toastify/dist/index.css";
 
 let email = ref("");
 
-const subscribe = async (req, res) => {
+const subscribe = async () => {
   try {
     const res = await fetch(`${import.meta.env.VITE_BACKEND}/subscribe`, {
       method: "POST",
@@ -15,12 +15,18 @@ const subscribe = async (req, res) => {
       }),
     });
     if (!res.ok) {
+      toast("Error from Server", {
+        autoClose: 5000
+      });
       console.error("Server error");
     }
     toast(`A verification mail has been sent to ${email.value}`, {
       autoClose: 5000,
     });
   } catch (err) {
+    toast("Error from Server", {
+      autoClose: 5000
+    });
     console.error("Fetch from backend error: ") + err;
   }
 };
