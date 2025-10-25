@@ -53,11 +53,11 @@ const corsOptions = {
 };
 
 //middleware
-app.use(cors(corsOptions)); // remove for production
+app.use(cors(corsOptions));
+app.use(bodyParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(bodyParser)
 app.use(router)
 
 router.all('/', (req, res) => {
