@@ -24,10 +24,10 @@ const subscribe = async () => {
       autoClose: 5000,
     });
   } catch (err) {
-    toast("Error from Server", {
+    toast("Failed to get to server", {
       autoClose: 5000
     });
-    console.error("Fetch from backend error: ") + err;
+    // console.error("Fetch from backend error: ") + err;
   }
 };
 </script>
