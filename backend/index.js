@@ -22,14 +22,15 @@ const client = new MongoClient(uri, {
 
 async function connectdb() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    // Connect the client to the server
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("newsletter").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    console.log("Successfully connected to MongoDB!");
+    return true;
+  } catch (err) {
+    console.error("Failed to connect to MongoDB:", err);
+    return false;
   }
 }
 
@@ -68,7 +69,7 @@ const verifyMail = (email) => {
   <div style="margin: 0 0 20px 0;">
       <p style="font-size:30px;font-weight: bold;padding: 10px;border-radius: 10px;">Sleek | Teams Collaboration, Sleek AI</p>
       <p>Verify your email by clicking this link </p>
-      <a href="${process.env.BACKEND}/verifyemail/?email=${email}" style="padding: 12px 20px;border-radius: 5px;background-color: blue;color: white;">Click to Verify</a>
+      <a href="${process.env.BACKEND}/verifyemail?email=${encodeURIComponent(email)}" style="padding: 12px 20px;border-radius: 5px;background-color: blue;color: white;">Click to Verify</a>
   </div>
     `)
 }
@@ -98,42 +99,153 @@ router.post('/subscribe', async (req, res) => {
       }
     });
 
-    // Wrap in an async IIFE so we can use await.
-    (async () => {
+    try {
+      // verify connection configuration (optional, will throw if config invalid)
+      await transporter.verify();
+
       const info = await transporter.sendMail({
         from: process.env.SENDER,
         to: email,
         subject: "Sleek AI",
-        text: "", // plain‑text body
+        text: "", // plain-text body
         html: verifyMail(email) // HTML body
       });
 
-      // console.log("Message sent: to " + email + " with id: " + info.messageId); // For testing
-    })();
-
-    res.status(200).json({ message: "Continue to verify your email on your email application" })
+      console.log(`Message sent: to ${email} id=${info.messageId}`);
+      res.status(200).json({ message: "Continue to verify your email on your email application" });
+    } catch (mailErr) {
+      console.error('Failed to send subscribe email:', mailErr);
+      return res.status(500).json({ error: 'Failed to send verification email' });
+    }
 
   } catch (err) { throw new Error(err) }
 })
 
-router.get('/verifyemail', (req, res) => {
-  res.json({message: "Your email has been verified"})
+router.get('/verifyemail', async (req, res) => {
+  try {
+    console.log('Verification request received with query:', req.query);
+    const { email } = req.query;
+    
+    if (!email) {
+      console.error('Email parameter is missing in request');
+      return res.status(400).send('Email parameter is missing');
+    }
+
+    // URL decode the email
+    const decodedEmail = decodeURIComponent(email);
+    console.log('Processing verification for email:', decodedEmail);
+
+    try {
+      // Ensure we have an active connection
+      if (!client.topology || !client.topology.isConnected()) {
+        console.log('MongoDB connection lost, reconnecting...');
+        await client.connect();
+      }
+
+      const database = client.db("newsletter");
+      const collection = database.collection("emails");
+      
+      // Check if email already exists
+      const existing = await collection.findOne({ email: decodedEmail });
+      if (existing) {
+        console.log('Email already verified:', decodedEmail);
+        return res.send('Email already verified');
+      }
+
+      const result = await collection.insertOne({
+        email: decodedEmail,
+        date: new Date(),
+        verified: true
+      });
+      console.log('Successfully added to database:', result.insertedId);
+
+          console.log(`Email verified and added to database: ${decodedEmail}, id: ${result.insertedId}`);
+    } catch (dbError) {
+      console.error('MongoDB operation failed:', dbError);
+      return res.status(500).send('Failed to verify email: Database error');
+    }
+
+    // Send welcome email
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.SENDER,
+        pass: process.env.SECRET,
+      }
+    });
+
+    try {
+      await transporter.verify();
+      await transporter.sendMail({
+        from: process.env.SENDER,
+        to: email,
+        subject: "Welcome to Sleek AI",
+        html: welcomeMail(email)
+      });
+    } catch (mailErr) {
+      console.error('Failed to send welcome email:', mailErr);
+      // Continue anyway since verification succeeded
+    }
+
+    // Redirect to frontend with success message
+    res.redirect(`${process.env.FRONTEND}`);
+  } catch (err) {
+    console.error('Verification error:', err);
+    res.status(500).send('Verification failed. Please try again.');
+  }
 })
 router.post('/verifyemail', async (req, res) => {
   try {
     const { email } = req.body
 
-    if (!email) { console.error('No request') }
+    if (!email) {
+      console.error('No email provided in request');
+      return res.status(400).json({ error: 'Email is required' });
+    }
 
-
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    const collection = client.db("newsletter").collection("emails")
-    await collection.insertOne({
+    const collection = client.db("newsletter").collection("emails");
+    const result = await collection.insertOne({
       email: email,
       date: new Date()
-    })
+    });
+    console.log(`Successfully added email to database: ${email}, id: ${result.insertedId}`);
+
+    // Create welcome email transporter
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.SENDER,
+        pass: process.env.SECRET,
+      }
+    });
+
+    try {
+      await transporter.verify();
+      const info = await transporter.sendMail({
+        from: process.env.SENDER,
+        to: email,
+        subject: "Sleek AI",
+        text: "",
+        html: welcomeMail(email)
+      });
+      console.log(`Welcome message sent to ${email} id=${info.messageId}`);
+      res.status(200).json({ message: "Registered successfully" });
+    } catch (mailErr) {
+      console.error('Failed to send welcome email:', mailErr);
+      // Still return 200 since DB operation succeeded
+      res.status(200).json({ 
+        message: "Registered successfully",
+        warning: "Welcome email could not be sent"
+      });
+    }
+  } catch (err) {
+    console.error('Error in /verifyemail:', err);
+    res.status(500).json({ error: 'Failed to verify email' });
+  }
 
     // Create a test account or replace with real credentials.
     const transporter = nodemailer.createTransport({
@@ -146,25 +258,29 @@ router.post('/verifyemail', async (req, res) => {
       }
     });
 
-    // Wrap in an async IIFE so we can use await.
-    (async () => {
-      const info = transporter.sendMail({
+    try {
+      await transporter.verify();
+
+      const info = await transporter.sendMail({
         from: process.env.SENDER,
         to: email,
         subject: "Sleek AI",
-        text: "", // plain‑text body
+        text: "", // plain-text body
         html: welcomeMail(email) // HTML body
       });
 
-      // console.log("Message sent: to " + email + " with id: " + info.messageId); // For testing
-    })();
-
-    res.status(200).json({ message: "Registered successfully" })
-
-  } catch (err) { throw err }
+      console.log(`Welcome message sent to ${email} id=${info.messageId}`);
+      res.status(200).json({ message: "Registered successfully" });
+    } catch (mailErr) {
+      console.error('Failed to send welcome email:', mailErr);
+      return res.status(500).json({ error: 'Failed to send welcome email' });
+    }
 })
 
-connectdb().then(() => {
-  // console.log('Mongodb connected') // For testing
-  app.listen(process.env.PORT, () => { console.log('Server up and running on port ' + process.env.PORT) })
-})
+// Connect to MongoDB before starting the server
+connectdb()
+.then(() => {
+  app.listen(process.env.PORT, () => {
+    console.log('Server up and running on port ' + process.env.PORT);
+  })})
+.catch(err => console.error(err))
