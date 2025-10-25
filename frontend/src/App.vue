@@ -20,7 +20,7 @@ const subscribe = async () => {
       });
       console.error("Server error");
     }
-    toast(`A verification mail has been sent to ${email.value}`, {
+    toast(`A verification email has been sent to ${email.value}`, {
       autoClose: 5000,
     });
   } catch (err) {
