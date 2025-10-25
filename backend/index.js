@@ -1,5 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import nodemailer from 'nodemailer'
@@ -56,6 +57,7 @@ app.use(cors(corsOptions)); // remove for production
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(bodyParser)
 app.use(router)
 
 router.all('/', (req, res) => {
@@ -129,7 +131,7 @@ router.post('/verifyemail', async (req, res) => {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
-    const collection = await client.db("newsletter").collection("emails")
+    const collection = client.db("newsletter").collection("emails")
     collection.insertOne({
       email: email,
       date: new Date()
