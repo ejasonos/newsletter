@@ -135,6 +135,7 @@ router.get('/verifyemail', async (req, res) => {
     const decodedEmail = decodeURIComponent(email);
     console.log('Processing verification for email:', decodedEmail);
 
+    /*** This ensures the mongodb database is connected ***/
     try {
       // Ensure we have an active connection
       if (!client.topology || !client.topology.isConnected()) {

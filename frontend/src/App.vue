@@ -23,6 +23,7 @@ const subscribe = async () => {
     toast(`A verification email has been sent to ${email.value}`, {
       autoClose: 5000,
     });
+    email.value = ""
   } catch (err) {
     toast("Failed to get to server", {
       autoClose: 5000
