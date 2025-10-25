@@ -82,14 +82,6 @@ const welcomeMail = (email) => {
 `)
 }
 
-const todayMail = ()=> {
-  return(`
-    <div>
-      <h3>Listen up folks, <span style="color:rgb(20,200,20);">Nigeria</span> just got Greener</h3>
-    </div>
-    `)
-}
-
 router.post('/subscribe', async (req, res) => {
   try {
     const { email } = req.body
@@ -112,14 +104,14 @@ router.post('/subscribe', async (req, res) => {
         from: process.env.SENDER,
         to: email,
         subject: "Sleek AI",
-        // text: "", // plain‑text body
+        text: "", // plain‑text body
         html: verifyMail(email) // HTML body
       });
 
       // console.log("Message sent: to " + email + " with id: " + info.messageId); // For testing
     })();
 
-    res.status(200).json({ message: verifyMail(email) })
+    res.status(200).json({ message: "Continue to verify your email on your email application" })
 
   } catch (err) { throw new Error(err) }
 })
@@ -130,7 +122,7 @@ router.post('/verifyemail', async (req, res) => {
 
     if (!email) { console.error('No request') }
 
-    
+
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
@@ -148,7 +140,7 @@ router.post('/verifyemail', async (req, res) => {
       auth: {
         user: process.env.SENDER,
         pass: process.env.SECRET, // Get a secret pass from google after enabling two-factor authentication
-      },
+      }
     });
 
     // Wrap in an async IIFE so we can use await.
@@ -157,8 +149,8 @@ router.post('/verifyemail', async (req, res) => {
         from: process.env.SENDER,
         to: email,
         subject: "Sleek AI",
-        // text: "", // plain‑text body
-        html: welcomeMail(email), // HTML body
+        text: "", // plain‑text body
+        html: welcomeMail(email) // HTML body
       });
 
       // console.log("Message sent: to " + email + " with id: " + info.messageId); // For testing
