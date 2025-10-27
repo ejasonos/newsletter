@@ -59,7 +59,7 @@ const subscribe = async () => {
             src="/IMG_20250805_192607_971.webp"
           />
         </div>
-        <div style="width: 20px; height: 20px; position: absolute; right: 10px">
+        <div style="width: 25px; height: 25px; position: absolute; right: 10px;border-radius: 100%;padding: 3px;" class="hover:bg-gray-100">
           <img
             style="height: 100%; width: 100%; filter: invert(65%)"
             src="/x.svg"
@@ -68,17 +68,20 @@ const subscribe = async () => {
       </div>
       <div style="text-align: center; margin: 15px">
         <p
+        class="transition-all duration-75 delay-75 hover:scale-105 ease-in"
           style="
             font-size: 1.2rem;
             font-weight: 700;
-            color: darkblue;
+            color: #465;
             cursor: default;
           "
         >
-          Discover more from
-          <span style="color: teal">Sleek AI</span> Newsletter
+          Discover new tech highlights from
+          <span style="color: teal">Sleek AI</span>
         </p>
-        <p style="font-size: 1.1rem; color: gray; line-height: 24px">
+        <p 
+        class="transition-all duration-75 delay-75 hover:scale-105 ease-in"
+        style="font-size: 1.1rem; color: gray; line-height: 24px;cursor: pointer;">
           Explain complex systems with simple terms, from the authors of the
           best selling system design book series....
         </p>
@@ -104,15 +107,15 @@ const subscribe = async () => {
           style="
             border: 2px solid rgba(0, 0, 0, 0.1);
             width: 100%;
-            padding: 8px 10px;
-            border-radius: 8px;
+            padding: 8px 15px;
+            border-radius: 100px;
             color: darkblue;
             outline-color: blue;
           "
         />
         <button
           type="submit"
-          class="w-full text-md text-white font-semibold bg-[rgb(80,80,220)] py-2 rounded-md border-2 border-[rgb(80,80,220)] hover:border-[rgb(80, 80, 220)] hover:bg-blue-100 hover:text-purple-800 transition-all delay-70 ease-in"
+          class="w-full text-md text-white font-semibold bg-[rgb(80,80,220)] py-2 rounded-full border-2 border-[rgb(80,80,220)]  border-transparent hover:bg-purple-900 focus:bg-blue-100 focus:text-purple-800 transition-all delay-70 ease-in uppercase"
         >
           Subscribe
         </button>
@@ -120,17 +123,17 @@ const subscribe = async () => {
       <div style="margin: 4px">
         <p
           style="
-            color: rgba(0, 0, 0, 0.4);
             font-size: 0.9rem;
             font-weight: 400;
             text-align: center;
             cursor: default;
           "
+          class="text-zinc-400 hover:text-zinc-600"
         >
-          By subscribing, I agree to Substack's
-          <u class="hover:text-[darkblue]">Terms of Use</u>, and acknowledge its
-          <u class="hover:text-[darkblue]">Information Collection Notice</u> and
-          <u class="hover:text-[darkblue]">Privacy Policy</u>
+          By subscribing, I agree to Sleek AI's
+          <u class="hover:text-[blue]">Terms of Use</u>, and acknowledge its
+          <u class="hover:text-[blue]">Information Collection Notice</u> and
+          <u class="hover:text-[blue]">Privacy Policy</u>
         </p>
       </div>
       <div style="margin: 25px 0 0 0">
