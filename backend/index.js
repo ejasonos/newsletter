@@ -131,7 +131,24 @@ router.get('/verifyemail', async (req, res) => {
       return res.status(400).send('Email parameter is missing');
     }
 
-    // URL decode the email
+    /* Getting items from a database then checking if it already exists */
+    try {
+      await client.connect()
+      const ifUserExists = await client.db("newsletter").collection("emails").find().toArray()
+
+      // URL decode the email
+      const decodedEmailForExistence = decodeURIComponent(email)
+      try {
+        for (let i = 0; i < ifUserExists.length; i++) {
+          if (decodedEmailForExistence === await ifUserExists[i].email) {
+            return res.json({ message: 'Email already verified' });
+          }
+        }
+      } catch (err) { throw err }
+    } catch (err) { throw err }
+
+
+    // URL decode the email    
     const decodedEmail = decodeURIComponent(email);
     console.log('Processing verification for email:', decodedEmail);
 
@@ -143,15 +160,9 @@ router.get('/verifyemail', async (req, res) => {
         await client.connect();
       }
 
+      // Add to Registered users in the database
       const database = client.db("newsletter");
       const collection = database.collection("emails");
-
-      // Check if email already exists
-      const existing = await collection.findOne({ email: decodedEmail });
-      if (existing) {
-        console.log('Email already verified:', decodedEmail);
-        return res.send('Email already verified');
-      }
 
       const result = await collection.insertOne({
         email: decodedEmail,
