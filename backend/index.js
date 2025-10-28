@@ -108,7 +108,8 @@ router.post('/subscribe', async (req, res) => {
         to: email,
         subject: "Sleek AI",
         text: "", // plain-text body
-        html: verifyMail(email) // HTML body
+        html: verifyMail(email), // HTML body
+        priority: 'high'
       });
 
       console.log(`Message sent: to ${email} id=${info.messageId}`);
@@ -194,7 +195,8 @@ router.get('/verifyemail', async (req, res) => {
         from: process.env.SENDER,
         to: email,
         subject: "Welcome to Sleek AI",
-        html: welcomeMail(email)
+        html: welcomeMail(email),
+        priority: 'high'
       });
     } catch (mailErr) {
       console.error('Failed to send welcome email:', mailErr);
