@@ -13,7 +13,7 @@
 ---
 
 ### 🧠 About Me
-- 🎓 **Bsc Computer Engineering**
+- 🎓 ongoing **Bsc Computer Engineering**
 - 🔭 Currently building full-stack applications with **Vue**, **React**, **Node**, and **MongoDB**
 - 🎨 Passionate about clean UI with **TailwindCSS** and strong typing using **TypeScript**
 - ⚡ Fun fact: I enjoy turning coffee into scalable web apps
@@ -43,7 +43,7 @@
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ejasonos&show_icons=true&theme=radical" alt="Jason's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=ejasonos&show_icons=true&theme=radical" alt="Favour's GitHub Stats" />
 </p>
 
 <p align="center">
