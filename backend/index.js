@@ -76,7 +76,7 @@ const verifyMail = (email) => {
 
 const welcomeMail = (email) => {
   return (`
-    <div>
+    <div style="display:flex; flex-direction: column;">
       <h1>Welcome to my Newsletter servivce</h1>
       <h3>${email}</h3>
 <div style="background-color: rgb(11,12,31);display: flex;flex-direction:column;gap:50px; padding:50px;">
