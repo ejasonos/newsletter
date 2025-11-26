@@ -35,6 +35,7 @@ const subscribe = async () => {
 </script>
 
 <template>
+  <main style="display:flex;justify-content:center; align-items:center;">
   <section
     style="
       width: 350px;
@@ -256,5 +257,5 @@ const subscribe = async () => {
       </p>
     </footer>
   </section>
-  <RouterView />
+  </main>the 
 </template>
