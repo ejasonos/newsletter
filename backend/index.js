@@ -77,7 +77,7 @@ const verifyMail = (email) => {
 const welcomeMail = (email) => {
   return (`
   <body>
-<main style="background-color: rgb(11,12,31);display: flex;flex-direction:column;gap:50px; padding:50px;">
+<main style="background-color: rgb(11,12,31);display: grid;gap:50px; padding:50px;">
 <p style="text-align:center;">
   <img src="https://readme-typing-svg.demolab.com/?lines=Hi+there!+I'm+Favour+Ejakpevweoghene+Onosemuode%2C+a+Full+Stack+Dev;Vue.js+%7C+React.js+%7C+Tailwind+CSS+%7C+Node.js+%7C+MongoDB;&center=true&width=800&height=45&color=38BDF8&pause=1000" alt="programming stack svg"/>
 </p>
@@ -85,17 +85,17 @@ const welcomeMail = (email) => {
   <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" style="width:80vw;height:350px;" alt="Programming svg"/>
 </p>
 
-<section style="display:flex; flex-direction: column;gap:15px;">
+<section style="display:grid;gap:15px;">
 <p style="font-size:1.5rem;text-align:center;color:white;font-style: calibri;">I'm Favour Ejakpevweoghene Onosemuode</p>
 
 <div style="height:0.02em;width:80%; display:flex;place-self:center;background-color:grey; margin:0 20px;"></div>
 
-<p style="font-size:1.3rem;text-align:center;color:white;">Full Stack Developer | JavaScript Specialist | UI/UX Enthusiast</h3>
+<p style="font-size:1.3rem;text-align:center;color:white;">Full Stack Developer | JavaScript Specialist | UI/UX Enthusiast</p>
 </section>
 
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
-<section style="display:flex; flex-direction: column;">
+<section style="display:grid;">
 <p style="font-size: 1.3rem;color:white;font-weight:bold;">About Me</p>
 <ul style="display:grid;gap:20px;padding: 10px 20px; border-radius: 15px; font-size:1.25rem;color:white;">
 <li>ongoing <b>Bsc Computer Engineering</b></li>
@@ -108,7 +108,7 @@ const welcomeMail = (email) => {
 
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
-<section>
+<section style="display:grid;">
 <p style="font-size: 1.3rem;color:white;font-weight:bold;">Tech Stack</p>
 
 <p style="font-size:1.25rem;color:white;">Frontend</p>
@@ -144,7 +144,7 @@ const welcomeMail = (email) => {
 
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
-<section style="display:flex; flex-direction: column;gap:15px;">
+<section style="display:grid;gap:15px;">
 <p style="font-size: 1.3rem;color:white;font-weight:bold;">Featured Projects</p>
 
 <p style="color:white; font-size:1.25rem;">
