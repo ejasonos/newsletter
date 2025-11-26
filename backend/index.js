@@ -113,17 +113,17 @@ const welcomeMail = (email) => {
 
 <p style="font-size:1.25rem;color:white;">Frontend</p>
 <div style="display:flex;flex-flow:wrap;gap:15px;">
-  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" style="height:100px;"/>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" style="height:100px;"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" style="height:100px;" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" style="height:100px;" />
+  <div style="padding:15px 20px; background-color:green;color:black; font-weight:bold;">Vue Js</div>
+  <div style="padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
+  <div style="padding:15px 20px; background-color:yellow;color:blue; font-weight:bold;">TailwindCSS</div>
+  <div style="padding:15px 20px; background-color:navy;color:white; font-weight:bold;">Typescript</div>
 </div>
 
 <p style="font-size:1.25rem;color:white;">Backend</p>
 <div style="display:flex;flex-flow:wrap;gap:15px;">
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" style="height:100px;" />
-  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"style="height:100px;" />
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"style="height:100px;" />
+  <div style="padding:15px 20px; background-color:black;color:white; font-weight:bold;">Node Js</div>
+  <div style="padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
+  <div style="padding:15px 20px; background-color:green;color:white; font-weight:500;">MongoDB</div>
 </div>
 </section>
 
