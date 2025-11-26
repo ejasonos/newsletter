@@ -82,22 +82,22 @@ const welcomeMail = (email) => {
   <img src="https://readme-typing-svg.demolab.com/?lines=Hi+there!+I'm+Favour+Ejakpevweoghene+Onosemuode%2C+a+Full+Stack+Dev;Vue.js+%7C+React.js+%7C+Tailwind+CSS+%7C+Node.js+%7C+MongoDB;&center=true&width=800&height=45&color=38BDF8&pause=1000" alt="programming stack svg"/>
 </p>
 <p style="text-align:center;">
-  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" style="width:80vw;height:400px;" alt="Programming svg"/>
+  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" style="width:80vw;height:350px;" alt="Programming svg"/>
 </p>
 
 <section style="display:flex; flex-direction: column;gap:15px;">
-<p style="font-size:5rem;text-align:center;color:white;font-style: calibri;">I'm Favour Ejakpevweoghene Onosemuode</p>
+<p style="font-size:1.5rem;text-align:center;color:white;font-style: calibri;">I'm Favour Ejakpevweoghene Onosemuode</p>
 
 <div style="height:0.02em;width:80%; display:flex;place-self:center;background-color:grey; margin:0 20px;"></div>
 
-<p style="font-size:3rem;text-align:center;color:white;">Full Stack Developer | JavaScript Specialist | UI/UX Enthusiast</h3>
+<p style="font-size:1.3rem;text-align:center;color:white;">Full Stack Developer | JavaScript Specialist | UI/UX Enthusiast</h3>
 </section>
 
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
 <section style="display:flex; flex-direction: column;">
-<p style="font-size: 3rem;color:white;font-weight:bold;">About Me</p>
-<ul style="display:flex; flex-direction: column;gap:25px;padding: 10px 20px; border-radius: 15px; font-size:2.5rem;color:white;">
+<p style="font-size: 1.3rem;color:white;font-weight:bold;">About Me</p>
+<ul style="display:grid;gap:20px;padding: 10px 20px; border-radius: 15px; font-size:1.25rem;color:white;">
 <li>ongoing <b>Bsc Computer Engineering</b></li>
 <li>Currently building full-stack applications with <b>Vue</b>, <b>React</b>, <b>Node</b>, and <b>MongoDB</b></li>
 <li>Passionate about clean UI with <b>TailwindCSS</b> and strong typing using <b>TypeScript</b></li>
@@ -109,9 +109,9 @@ const welcomeMail = (email) => {
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
 <section>
-<p style="font-size: 3rem;color:white;font-weight:bold;">Tech Stack</p>
+<p style="font-size: 1.3rem;color:white;font-weight:bold;">Tech Stack</p>
 
-<p style="font-size:2.5rem;color:white;">Frontend</p>
+<p style="font-size:1.25rem;color:white;">Frontend</p>
 <div style="display:flex;flex-flow:wrap;gap:15px;">
   <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" style="height:100px;"/>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" style="height:100px;"/>
@@ -119,7 +119,7 @@ const welcomeMail = (email) => {
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" style="height:100px;" />
 </div>
 
-<p style="font-size:2.5rem;color:white;">Backend</p>
+<p style="font-size:1.25rem;color:white;">Backend</p>
 <div style="display:flex;flex-flow:wrap;gap:15px;">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" style="height:100px;" />
   <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"style="height:100px;" />
@@ -130,8 +130,8 @@ const welcomeMail = (email) => {
 
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
-<section style="display:flex; flex-direction: column;gap:15px;">
-<p style="font-size: 3rem;color:white;font-weight:bold;">Github Stats</p>
+<section style="display:grid;gap:15px;">
+<p style="font-size: 1.3rem;color:white;font-weight:bold;">Github Stats</p>
 
 <p style="text-align:center;color:white;">
   <img src="https://github-readme-stats.vercel.app/api?username=ejasonos&show_icons=true&theme=radical" alt="Favour's GitHub Stats" style="height:100px;color:white;"/>
@@ -145,12 +145,12 @@ const welcomeMail = (email) => {
 <div style="height:2px;width:80%; display:flex; place-self:center;background-color:gray; margin:0 20px;"></div>
 
 <section style="display:flex; flex-direction: column;gap:15px;">
-<p style="font-size: 3rem;color:white;font-weight:bold;">Featured Projects</p>
+<p style="font-size: 1.3rem;color:white;font-weight:bold;">Featured Projects</p>
 
-<p style="color:white; font-size:2.5rem;">
+<p style="color:white; font-size:1.25rem;">
 Here are some of my highlighted open-source or side projects:
 </p>
-<ul style="background-color:rgb(92,88,121);padding: 50px 35px;gap:15px; border-radius:15px;list-style-type: circle;display:flex; flex-direction:column;overflow:scroll; color:white; font-size:2.5rem;">
+<ul style="background-color:rgb(92,88,121);padding: 50px 35px;gap:15px; border-radius:15px;list-style-type: circle;display:grid;overflow:scroll; color:white; font-size:1.25rem;">
 <li>[Health care management] <span style="display:block;">https://medvax-clone.vercel.app</span></li>
 <li>[Vehicle hire service] <span style="display:block;">https://kayson-six.vercel.app</span></li>
 <li>[Newsletter service] <span style="display:block;">https://newsletter-timeless.vercel.app</span></li>
