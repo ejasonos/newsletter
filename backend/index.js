@@ -112,18 +112,18 @@ const welcomeMail = (email) => {
 <p style="font-size: 1.3rem;color:white;font-weight:bold;">Tech Stack</p>
 
 <p style="font-size:1.25rem;color:white;">Frontend</p>
-<div style="display:grid;grid-template-columns:2;gap:15px;">
-  <div style="display:flex;flex-flow:nowrap;padding:15px 20px; background-color:green;color:black; font-weight:bold;">Vue Js</div>
-  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
-  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:yellow;color:blue; font-weight:bold;">TailwindCSS</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:15px;">
+  <div style="display:flex; width:fit-content;padding:15px 20px; background-color:green;color:black; font-weight:bold;">Vue Js</div>
+  <div style="display:flex; width:fit-content;margin:15px;padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
+  <div style="display:flex; width:fit-content;margin:15px;padding:15px 20px; background-color:yellow;color:blue; font-weight:bold;">TailwindCSS</div>
   <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:navy;color:white; font-weight:bold;">Typescript</div>
 </div>
 
 <p style="font-size:1.25rem;color:white;">Backend</p>
-<div style="display:grid;grid-template-columns:2;gap:15px;">
-  <div style="display:flex;flex-flow:nowrap;padding:15px 20px; background-color:black;color:white; font-weight:bold;">Node Js</div>
-  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
-  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:green;color:white; font-weight:500;">MongoDB</div>
+<div style="display:grid;grid-template-columns:auto auto;gap:15px;">
+  <div style="display:flex; width:fit-content;padding:15px 20px; background-color:black;color:white; font-weight:bold;">Node Js</div>
+  <div style="display:flex; width:fit-content;margin:15px;padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
+  <div style="display:flex; width:fit-content;margin:15px;padding:15px 20px; background-color:green;color:white; font-weight:500;">MongoDB</div>
 </div>
 </section>
 
