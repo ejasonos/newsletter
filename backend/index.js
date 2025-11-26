@@ -113,17 +113,17 @@ const welcomeMail = (email) => {
 
 <p style="font-size:1.25rem;color:white;">Frontend</p>
 <div style="display:flex;flex-flow:wrap;gap:15px;">
-  <div style="padding:15px 20px; background-color:green;color:black; font-weight:bold;">Vue Js</div>
-  <div style="padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
-  <div style="padding:15px 20px; background-color:yellow;color:blue; font-weight:bold;">TailwindCSS</div>
-  <div style="padding:15px 20px; background-color:navy;color:white; font-weight:bold;">Typescript</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:green;color:black; font-weight:bold;">Vue Js</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:yellow;color:blue; font-weight:bold;">TailwindCSS</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:navy;color:white; font-weight:bold;">Typescript</div>
 </div>
 
 <p style="font-size:1.25rem;color:white;">Backend</p>
 <div style="display:flex;flex-flow:wrap;gap:15px;">
-  <div style="padding:15px 20px; background-color:black;color:white; font-weight:bold;">Node Js</div>
-  <div style="padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
-  <div style="padding:15px 20px; background-color:green;color:white; font-weight:500;">MongoDB</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:black;color:white; font-weight:bold;">Node Js</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
+  <div style="display:flex;flex-flow:nowrap;margin:15px;padding:15px 20px; background-color:green;color:white; font-weight:500;">MongoDB</div>
 </div>
 </section>
 
