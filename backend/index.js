@@ -115,11 +115,11 @@ const welcomeMail = (email) => {
 <div style="display:grid;gap:15px;">
  <div style="display:flex;gap:15px;">
   <div style="display:flex; height:fit-content;width:fit-content;padding:15px 20px; background-color:green;color:black; font-weight:bold;">Vue Js</div>
-  <div style="display:flex; height:fit-content;width:fit-content;margin:15px;padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
+  <div style="display:flex; height:fit-content;width:fit-content;margin:0 15px;padding:15px 20px; background-color:skyblue;color:white; font-weight:bold;">React Js</div>
  </div>
  <div style="display:flex;gap:15px;">
   <div style="display:flex; height:fit-content;width:fit-content;padding:15px 20px; background-color:yellow;color:blue; font-weight:bold;">TailwindCSS</div>
-  <div style="display:flex; height:fit-content;width:fit-content;margin:15px;padding:15px 20px; background-color:navy;color:white; font-weight:bold;">Typescript</div>
+  <div style="display:flex; height:fit-content;width:fit-content;margin:0 15px;padding:15px 20px; background-color:navy;color:white; font-weight:bold;">Typescript</div>
  </div>
 </div>
 
@@ -127,7 +127,7 @@ const welcomeMail = (email) => {
 <div style="display:grid;gap:15px;">
  <div style="display:flex;gap:15px;">
   <div style="display:flex; height:fit-content;width:fit-content;padding:15px 20px; background-color:black;color:white; font-weight:bold;">Node Js</div>
-  <div style="display:flex; height:fit-content;width:fit-content;margin:15px;padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
+  <div style="display:flex; height:fit-content;width:fit-content;margin:0 15px;padding:15px 20px; background-color:black;color:white; font-weight:100;">Express Js</div>
  </div>
   <div style="display:flex; height:fit-content;width:fit-content;padding:15px 20px; background-color:green;color:white; font-weight:500;">MongoDB</div>
 </div>
