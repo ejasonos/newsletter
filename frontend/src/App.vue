@@ -191,6 +191,7 @@ const subscribe = async () => {
     >
       <input
         placeholder="example@email.com"
+        class="placeholder:text-[gray]/50"
         type="email"
         maxlength="150"
         name="email"
