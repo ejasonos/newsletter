@@ -76,10 +76,8 @@ const verifyMail = (email) => {
 
 const welcomeMail = (email) => {
   return (`
-    <div style="display:flex; flex-direction: column;">
-      <h1>Welcome to my Newsletter servivce</h1>
-      <h3>${email}</h3>
-<div style="background-color: rgb(11,12,31);display: flex;flex-direction:column;gap:50px; padding:50px;">
+  <body>
+<main style="background-color: rgb(11,12,31);display: flex;flex-direction:column;gap:50px; padding:50px;">
 <p style="text-align:center;">
   <img src="https://readme-typing-svg.demolab.com/?lines=Hi+there!+I'm+Favour+Ejakpevweoghene+Onosemuode%2C+a+Full+Stack+Dev;Vue.js+%7C+React.js+%7C+Tailwind+CSS+%7C+Node.js+%7C+MongoDB;&center=true&width=800&height=45&color=38BDF8&pause=1000" alt="programming stack svg"/>
 </p>
@@ -158,9 +156,9 @@ Here are some of my highlighted open-source or side projects:
 <li>[Newsletter service] <span style="display:block;">https://newsletter-timeless.vercel.app</span></li>
 </ul>
 </section>
-</div>
+</main>
+</body>
 
-    </div>
 `)
 }
 
@@ -171,7 +169,7 @@ router.post('/subscribe', async (req, res) => {
 
     // Create a test account or replace with real credentials.
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+    host: "smtp.gmail.com",
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
@@ -188,7 +186,7 @@ router.post('/subscribe', async (req, res) => {
         from: process.env.SENDER,
         to: email,
         subject: "Sleek AI",
-        text: "", // plain-text body
+        txt: "", // plain-text body
         html: verifyMail(email), // HTML body
         priority: 'high'
       });
