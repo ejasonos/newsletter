@@ -257,5 +257,5 @@ const subscribe = async () => {
       </p>
     </footer>
   </section>
-  </main>the 
+  </main>
 </template>
